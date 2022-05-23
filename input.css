@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-image: url('../img/img/bg-tablet-pattern.svg');
+    background-repeat: no-repeat;
+    background-size: 800px;
+    background-position: 90%-20%;
+}
+
+#cta{
+    background-image: url("../img/img/bg-simplify-section-desktop.svg");
+    background-repeat: no-repeat;
+}
+@media(max-width:576px){
+    body{
+        background-position: 50px -50px;
+        background-size: 500px;
+    }
+    #cta{
+        background-image: url('../img/img/bg-simplify-section-mobile.svg');
+    }
+}
+
+
+/* Hamburger Menu */
+
+.hamburger{
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom{
+    position: absolute;
+    left: 0;
+    top:0;
+    width:24px;
+    height:2px;
+    background:#000;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger-middle{
+    transform: translateY(7px);
+}
+
+.hamburger-bottom{
+    transform: translateY(14px);
+}
+
+.open{
+    transform: rotate(90deg);
+    transform: translateY(0px);
+}
+
+.open .hamburger-top{
+    transform: rotate(45deg)
+     translateY(6px)
+     translate(6px)
+}
+
+.open .hamburger-middle{
+    display: none;
+}
+
+.open .hamburger-bottom{
+    transform: rotate(-45deg)
+     translateY(6px)
+     translate(-6px)
+}
+/* layer components of img */
+@layer components{
+    .timeline-img{
+      @apply  h-24 w-24 object-cover rounded-full shadow-md border-4 border-white sm:absolute md:mx-auto md:left-0 md:right-0
+    }
+    .timeline-container{
+        @apply relative pt-2 sm:pl-28 sm:pt-0 md:w-1/2 md:ml-auto md:pl-16
+    }
+    .timeline-container-left{
+        @apply md:ml-0 md:mr-auto md:pl-0 md:pr-16;
+    }
+    .timeline-pointer{
+        @apply absolute  inset-0 left-10 h-4 w-4 transform rotate-45 bg-white sm:top-11 sm:left-26 md:left-14
+    }
+    .timeline-pointer-left{
+        @apply md:left-auto md:right-14;
+    }
+}
